@@ -245,9 +245,16 @@ color:#ffd700;
 </section>
 
 <script>
-
 let score = 0;
 let index = 0;
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
 
 const quiz = [
 {q:"ما المقصود بتوحيد الألوهية؟",a:[
@@ -383,120 +390,60 @@ const quiz = [
 ]}
 ];
 
-function shuffle(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [array[i], array[j]] = [array[j], array[i]];
+function go(id){
+  document.querySelectorAll("section").forEach(s => s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+
+  if(id === "quiz"){
+    index = 0;
+    score = 0;
+    document.getElementById("score").innerText = score;
+    load();
   }
-  return array;
-}
-
-// خلط الخيارات لكل سؤال
-const shuffledQuiz = quiz.map(q => ({
-  q: q.q,
-  a: shuffle([...q.a])
-}));
-
-function go(id){
-document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-
-if(id==="quiz"){
-load();
-}
-}
-
-function load(){
-
-if(index>=quiz.length){
-document.getElementById("question").innerText="انتهى الاختبار 🎓";
-document.getElementById("answers").innerHTML="";
-document.getElementById("result").innerText="نتيجتك: "+score+" / "+quiz.length;
-return;
-}
-
-let q = quiz[index];
-document.getElementById("question").innerText = q.q;
-
-let box = document.getElementById("answers");
-box.innerHTML = "";
-document.getElementById("result").innerText="";
-
-// نخلط الإجابات هنا 👇
-let answers = shuffle([...q.a]);
-
-answers.forEach(a=>{
-let btn = document.createElement("button");
-btn.innerText = a[0];
-
-btn.onclick=()=>{
-if(a[1]) score++;
-
-document.getElementById("score").innerText=score;
-document.getElementById("result").innerText=a[1]?"✔ صحيح":"✖ خطأ";
-
-setTimeout(()=>{
-index++;
-load();
-},700);
-};
-
-box.appendChild(btn);
-});
-}
-
-function go(id){
-document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
-document.getElementById(id).classList.add("active");
-
-if(id==="quiz"){
-load();
-}
 }
 
 function toggle(el){
-let content = el.querySelector(".lesson-content");
-content.style.display = content.style.display==="block" ? "none":"block";
+  let content = el.querySelector(".lesson-content");
+  content.style.display = content.style.display === "block" ? "none" : "block";
 }
 
 function load(){
 
-if(index>=quiz.length){
-document.getElementById("question").innerText="انتهى الاختبار 🎓";
-document.getElementById("answers").innerHTML="";
-document.getElementById("result").innerText="نتيجتك: "+score+" / "+quiz.length;
-return;
+  if(index >= quiz.length){
+    document.getElementById("question").innerText = "انتهى الاختبار 🎓";
+    document.getElementById("answers").innerHTML = "";
+    document.getElementById("result").innerText = "نتيجتك: " + score + " / " + quiz.length;
+    return;
+  }
+
+  let q = quiz[index];
+  document.getElementById("question").innerText = q.q;
+
+  let box = document.getElementById("answers");
+  box.innerHTML = "";
+  document.getElementById("result").innerText = "";
+
+  let answers = shuffle([...q.a]);
+
+  answers.forEach(ans => {
+    let btn = document.createElement("button");
+    btn.innerText = ans[0];
+
+    btn.onclick = () => {
+      if(ans[1]) score++;
+
+      document.getElementById("score").innerText = score;
+      document.getElementById("result").innerText = ans[1] ? "✔ صحيح" : "✖ خطأ";
+
+      setTimeout(() => {
+        index++;
+        load();
+      }, 700);
+    };
+
+    box.appendChild(btn);
+  });
 }
-
-let q = quiz[index];
-
-document.getElementById("question").innerText = q.q;
-
-let box = document.getElementById("answers");
-box.innerHTML = "";
-document.getElementById("result").innerText="";
-
-q.a.forEach(ans=>{
-let btn = document.createElement("button");
-btn.innerText = ans[0];
-
-btn.onclick=()=>{
-if(ans[1]) score++;
-
-document.getElementById("score").innerText=score;
-document.getElementById("result").innerText=ans[1]?"✔ صحيح":"✖ خطأ";
-
-setTimeout(()=>{
-index++;
-load();
-},700);
-};
-
-box.appendChild(btn);
-});
-
-}
-
 </script>
 
 </body>
