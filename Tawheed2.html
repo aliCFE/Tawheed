@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>منصة التوحيد التعليمية</title>
+
+<style>
+body{
+margin:0;
+font-family:Tahoma;
+background:linear-gradient(135deg,#0b0b0b,#111);
+color:white;
+}
+
+/* HEADER */
+header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 25px;
+background:#111;
+position:sticky;
+top:0;
+z-index:100;
+border-bottom:1px solid #222;
+}
+
+nav button{
+margin:3px;
+padding:10px 14px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#1f1f1f;
+color:white;
+transition:0.3s;
+}
+
+nav button:hover{
+background:#444;
+transform:scale(1.05);
+}
+
+/* SECTIONS */
+section{
+display:none;
+padding:40px;
+}
+
+.active{
+display:block;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+/* HOME HERO */
+.hero{
+text-align:center;
+padding:80px 20px;
+}
+
+.hero h1{
+font-size:40px;
+color:#ffd700;
+}
+
+.hero p{
+font-size:18px;
+line-height:2;
+color:#ccc;
+}
+
+.glow{
+color:#ffd700;
+text-shadow:0 0 10px #ffd700;
+}
+
+/* LESSONS */
+.lesson{
+background:#141414;
+padding:15px;
+margin:10px 0;
+border-radius:12px;
+cursor:pointer;
+border-right:4px solid #555;
+transition:0.3s;
+}
+
+.lesson:hover{
+background:#1d1d1d;
+transform:translateX(-5px);
+}
+
+.lesson-content{
+display:none;
+padding:15px;
+margin-top:10px;
+background:#0f0f0f;
+border-radius:10px;
+line-height:2;
+color:#ddd;
+}
+
+/* QUIZ */
+.quiz-box{
+background:#141414;
+padding:25px;
+border-radius:15px;
+text-align:center;
+}
+
+.quiz-box button{
+display:block;
+margin:10px auto;
+padding:12px;
+width:80%;
+border:none;
+border-radius:10px;
+cursor:pointer;
+background:#222;
+color:white;
+font-size:16px;
+transition:0.3s;
+}
+
+.quiz-box button:hover{
+background:#444;
+transform:scale(1.03);
+}
+
+.score{
+text-align:center;
+font-size:22px;
+margin-bottom:10px;
+color:#ffd700;
+}
+
+#result{
+margin-top:15px;
+font-size:20px;
+color:#ffd700;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div>📘 التوحيد</div>
+<nav>
+<button onclick="go('home')">الرئيسية</button>
+<button onclick="go('lessons')">الدروس</button>
+<button onclick="go('quiz')">الاختبار</button>
+</nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="active">
+<div class="hero">
+<h1 class="glow">منصة التوحيد التعليمية</h1>
+<p>
+تعلم العقيدة الصحيحة بطريقة سهلة، منظمة، وتفاعلية.<br>
+من كتاب التوحيد للإمام محمد بن عبدالوهاب رحمه الله.
+</p>
+<br>
+<br>
+<h1 class="glow"> صلوا على النبي محمد </h1>
+
+</div>
+</section>
+
+<!-- LESSONS -->
+<section id="lessons">
+<div class="container">
+<h1 class="glow"> صلوا على النبي محمد </h1>
+
+<h2 style="text-align:center;color:#ffd700;">الدروس</h2>
+
+<div class="lesson" onclick="toggle(this)">
+📌 معنى التوحيد
+<div class="lesson-content">
+التوحيد هو إفراد الله سبحانه وتعالى بالعبادة، وهو أساس الدين وأول ما دعا إليه الأنبياء.<br><br>
+قال الله تعالى: "وما أرسلنا من قبلك من رسول إلا نوحي إليه أنه لا إله إلا أنا فاعبدون".<br><br>
+التوحيد ينقسم إلى: ربوبية، ألوهية، أسماء وصفات.
+</div>
+</div>
+
+<div class="lesson" onclick="toggle(this)">
+📌 أنواع التوحيد
+<div class="lesson-content">
+1- توحيد الربوبية: الإيمان بأن الله هو الخالق الرازق المدبر.<br>
+2- توحيد الألوهية: إفراد الله بالعبادة وحده.<br>
+3- توحيد الأسماء والصفات: إثبات ما أثبته الله لنفسه.
+</div>
+</div>
+
+<div class="lesson" onclick="toggle(this)">
+📌 الشرك الأكبر
+<div class="lesson-content">
+هو صرف العبادة لغير الله مثل الدعاء لغير الله أو الذبح لغيره أو الاستغاثة بالأموات.<br>
+وهو مخرج من الإسلام إذا مات عليه الإنسان.
+</div>
+</div>
+
+<div class="lesson" onclick="toggle(this)">
+📌 الشرك الأصغر
+<div class="lesson-content">
+مثل الرياء (العمل لأجل الناس) والحلف بغير الله.<br>
+وهو لا يخرج من الإسلام لكنه ذنب عظيم.
+</div>
+</div>
+
+<div class="lesson" onclick="toggle(this)">
+📌 أهمية التوحيد
+<div class="lesson-content">
+التوحيد هو سبب دخول الجنة والنجاة من النار، وهو أول ما يُسأل عنه العبد يوم القيامة.
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- QUIZ -->
+<section id="quiz">
+<div class="container">
+
+<h2 style="text-align:center;color:#ffd700;">الاختبار</h2>
+
+<div class="score">النقاط: <span id="score">0</span></div>
+
+<div class="quiz-box">
+
+<p id="question"></p>
+<div id="answers"></div>
+<p id="result"></p>
+
+</div>
+<h1 class="glow"> صلوا على النبي محمد </h1>
+
+</div>
+</section>
+
+<script>
+
+let score = 0;
+let index = 0;
+
+const quiz = [
+{q:"ما المقصود بتوحيد الألوهية؟",a:[
+      ["الإيمان بأن الله خالق فقط",0],
+      ["إفراد الله بالعبادة والقصد",1],
+["إثبات أسماء الله وصفاته",0]
+]},
+{q:"الاستغاثة بغير الله فيما لا يقدر عليه إلا الله تعتبر:",a:[
+["شرك أكبر",1],
+["توسل مشروع",0],
+["دعاء عادي",0]
+]},
+{q:"الرياء يدخل ضمن:",a:[
+      ["الكفر الأكبر",0],
+      ["الشرك الأصغر",1],
+["المعاصي فقط",0]
+]},
+{q:"توحيد الربوبية يعني:",a:[
+["إفراد الله بالخلق والتدبير",1],
+["عبادة الله فقط",0],
+["إثبات الصفات فقط",0]
+]},
+{q:"دعاء غير الله في الشدة:",a:[
+      ["بدعة",0],
+      ["شرك أكبر",1],
+["مكروه فقط",0]
+]},
+{q:"الحلف بغير الله:",a:[
+      ["شرك أكبر",0],
+      ["شرك أصغر",1],
+["مباح دائمًا",0]
+]},
+{q:"الإخلاص هو:",a:[
+["إرادة وجه الله بالعمل",1],
+["إرضاء الناس",0],
+["كثرة العمل",0]
+]},
+{q:"الشرك الأكبر نتيجته:",a:[
+      ["نقص الأجر",0],
+      ["الخروج من الإسلام",1],
+["ضعف الإيمان",0]
+]},
+{q:"من شروط قبول العمل:",a:[
+["الإخلاص والمتابعة",1],
+["السرعة",0],
+["الكثرة",0]
+]},
+{q:"توحيد الأسماء والصفات:",a:[
+["إثبات ما أثبته الله لنفسه",1],
+["إنكار الصفات",0],
+["تشبيه الخالق",0]
+]},
+{q:"صرف العبادة لغير الله:",a:[
+      ["خطأ بسيط",0],
+      ["شرك",1],
+["مكروه",0]
+]},
+{q:"الشرك الأصغر:",a:[
+["لا يخرج من الإسلام",1],
+["كفر أكبر",0],
+["مباح",0]
+]},
+{q:"أول ما دعا إليه الأنبياء:",a:[
+      ["الصلاة",0],
+      ["التوحيد",1],
+["الزكاة",0]
+]},
+{q:"من نواقض الإسلام:",a:[
+      ["الصدق",0],
+      ["الشرك الأكبر",1],
+["الصلاة",0]
+]},
+{q:"العمل بدون إخلاص:",a:[
+["مردود",1],
+["مقبول دائمًا",0],
+["أفضل",0]
+]},
+{q:"التوحيد أساس:",a:[
+["الدين كله",1],
+["العبادات فقط",0],
+["الأخلاق فقط",0]
+]},
+{q:"دعاء الميت:",a:[
+["شرك أكبر",1],
+["مكروه",0],
+["مباح",0]
+]},
+{q:"توحيد الربوبية يتعلق بـ:",a:[
+      ["أفعال العباد",0],
+      ["أفعال الله",1],
+["الأخلاق",0]
+]},
+{q:"الرياء:",a:[
+      ["يزيد الأجر",0],
+      ["يبطل الأجر",1],
+["لا يؤثر",0]
+]},
+{q:"من أعظم الذنوب:",a:[
+      ["الكذب",0],
+["الشرك",1],
+["السرقة",0]
+]},
+{q:"التوحيد ضد:",a:[
+["الشرك",1],
+["الإيمان",0],
+["الصلاة",0]
+]},
+{q:"من دعا غير الله:",a:[
+      ["مؤمن كامل",0],
+      ["وقع في الشرك",1],
+["لا شيء عليه",0]
+]},
+{q:"العبادة تكون:",a:[
+["لله وحده",1],
+["للصالحين",0],
+["للأنبياء",0]
+]},
+{q:"الإيمان بدون توحيد:",a:[
+      ["كامل",0],
+      ["لا يقبل",1],
+["أفضل",0]
+]},
+{q:"توحيد الألوهية:",a:[
+      ["إثبات الصفات",0],
+      ["إفراد الله بالعبادة",1],
+      ["خلق الكون",0]
+]},
+{q:"الشرك الأكبر:",a:[
+      ["ذنب صغير",0],
+      ["مكروه",0],
+      ["أخطر الذنوب",1],
+["AJ راسه مربع",0]
+]}
+];
+
+function shuffle(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+// خلط الخيارات لكل سؤال
+const shuffledQuiz = quiz.map(q => ({
+  q: q.q,
+  a: shuffle([...q.a])
+}));
+
+function go(id){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+
+if(id==="quiz"){
+load();
+}
+}
+
+function load(){
+
+if(index>=quiz.length){
+document.getElementById("question").innerText="انتهى الاختبار 🎓";
+document.getElementById("answers").innerHTML="";
+document.getElementById("result").innerText="نتيجتك: "+score+" / "+quiz.length;
+return;
+}
+
+let q = quiz[index];
+document.getElementById("question").innerText = q.q;
+
+let box = document.getElementById("answers");
+box.innerHTML = "";
+document.getElementById("result").innerText="";
+
+// نخلط الإجابات هنا 👇
+let answers = shuffle([...q.a]);
+
+answers.forEach(a=>{
+let btn = document.createElement("button");
+btn.innerText = a[0];
+
+btn.onclick=()=>{
+if(a[1]) score++;
+
+document.getElementById("score").innerText=score;
+document.getElementById("result").innerText=a[1]?"✔ صحيح":"✖ خطأ";
+
+setTimeout(()=>{
+index++;
+load();
+},700);
+};
+
+box.appendChild(btn);
+});
+}
+
+function go(id){
+document.querySelectorAll("section").forEach(s=>s.classList.remove("active"));
+document.getElementById(id).classList.add("active");
+
+if(id==="quiz"){
+load();
+}
+}
+
+function toggle(el){
+let content = el.querySelector(".lesson-content");
+content.style.display = content.style.display==="block" ? "none":"block";
+}
+
+function load(){
+
+if(index>=quiz.length){
+document.getElementById("question").innerText="انتهى الاختبار 🎓";
+document.getElementById("answers").innerHTML="";
+document.getElementById("result").innerText="نتيجتك: "+score+" / "+quiz.length;
+return;
+}
+
+let q = quiz[index];
+
+document.getElementById("question").innerText = q.q;
+
+let box = document.getElementById("answers");
+box.innerHTML = "";
+document.getElementById("result").innerText="";
+
+q.a.forEach(ans=>{
+let btn = document.createElement("button");
+btn.innerText = ans[0];
+
+btn.onclick=()=>{
+if(ans[1]) score++;
+
+document.getElementById("score").innerText=score;
+document.getElementById("result").innerText=ans[1]?"✔ صحيح":"✖ خطأ";
+
+setTimeout(()=>{
+index++;
+load();
+},700);
+};
+
+box.appendChild(btn);
+});
+
+}
+
+</script>
+
+</body>
+</html>
